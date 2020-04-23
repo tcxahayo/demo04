@@ -1,0 +1,19 @@
+.login{
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: 1px solid #e0d8d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .back{
+        font-size: 12px;
+        padding: 4px 15px;
+        cursor: pointer;
+        display: inherit;
+        color: #aaa5a5;
+    }
+}

@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+  width: 100%;
+  .content{
+    display: inline-block;
+    width: 500px;
+    min-height: 500px;
+    padding: 10px 15px;
+    border: 1px solid #e0d8d8;
+    margin-top: 50px;
+    .title{
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(38,38,38,1);
+      text-align: left;
+      margin-bottom: 15px;
+      .loginTxt{
+        font-size: 14px;
+        color: #70cffa;
+        cursor: pointer;
+      }
+    }
+    .btu{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .btu1{
+        background: #1785ff;
+        color: #fff;
+        padding: 5px 20px;
+        margin-right: 10px;
+        border-radius: 20px;
+      }
+    }
+    .btuContent{
+      min-height: 500px;
+      width: 100%;
+      margin-top: 30px;
+      // border: 1px solid red;
+    }
+  }
+}
