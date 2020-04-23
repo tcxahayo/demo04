@@ -1,3 +1,7 @@
+## php 接口尝试
+添加php接口，分离reducer和action
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
