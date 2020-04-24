@@ -4,7 +4,7 @@ import InputBox from './input/input';
 import ListBox from './list/list';
 import { Link, Route } from "react-router-dom";
 import { connect } from 'react-redux';
-import { getListAction } from '../page/list/actionCreate';
+import { loginAction } from '../page/login/actionCreate';
 import {bindActionCreators} from 'redux';
 import axios from 'axios';
 import '../mock/mock';
@@ -15,15 +15,8 @@ class App extends Component {
     super(props);
   }
 
-  componentDidMount(){
-    // request('api/list','').then((res)=>{console.log(res)});
-    // axios('api/list').then((res)=>{console.log(res)});
-    // request('http://localhost/index.php','').then((res)=>{console.log(res)});
-    // this.props.geAxios();
-  }
-
   render() {
-    const { username,list} = this.props
+    const { username} = this.props
     return (
       <div className="App">
         <div className="content">
@@ -68,14 +61,13 @@ class App extends Component {
 //将store里面的值映射为props
 const mapStateToProps = (state) => {
   return {
-    username: state.username,
-    list:state.list
+    username: state.loginRecuder.username,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    geAxios:bindActionCreators(getListAction,dispatch)
+    loginAction:bindActionCreators(loginAction,dispatch)
   }
 }
 

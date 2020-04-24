@@ -2,6 +2,7 @@
 import { combineReducers } from 'redux';
 import inputReducer from '../page/input/reducer';
 import listRecuder from '../page/list/reducer';
+import loginRecuder from '../page/login/reducer';
 
 export const defaultState = {      //默认数据
     data: ['星期一', '星期二'],
@@ -15,7 +16,8 @@ export const defaultState = {      //默认数据
 
 const reducer = combineReducers({
     // inputReducer,
-    listRecuder
+    listRecuder,
+    loginRecuder
 })
 
 export default reducer;

@@ -157,5 +157,5 @@
   "devDependencies": {
     "mockjs": "^1.1.0"
   },
-  "proxy": "http://localhost/index.php"
+  "proxy": "http://localhost/"
 }

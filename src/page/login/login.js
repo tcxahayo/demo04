@@ -1,12 +1,13 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import './login.scss';
-import { Form, Input, Button , message} from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import { loginAction } from '../../store/actionCreate';
+import { loginAction } from './actionCreate';
 import axios from 'axios';
 import '../../mock/mock';
-import {bindActionCreators} from 'redux';
+import { bindActionCreators } from 'redux';
+import { request } from '../http/api';
 
 //页面布局
 const layout = {
@@ -29,23 +30,32 @@ class Login extends Component {
         super(props);
         this.state = {}
     }
+    // componentDidMount(){
+    //     console.log('+++++++++++++');
+    //     request('login.php',{},'GET').then((res)=>{
+    //         console.log(res)
+    //     })
+    // }
+    //查询登陆
+    login = (username, password) => {
+        request('login.php', {type:'login',username:username,password:password}, 'POST').then((res) => {
+            console.log(res);
+            if(res === true){
+                this.props.history.push('/');
+                this.props.loginAction(username);
+            }else{
+                message.error('密码或用户名错误', 2)
+            }
+        })
+    }
 
     //提交失败
     onFinishFailed = errorInfo => {
         console.log('Failed:', errorInfo);
     };
     //模拟接口
-    submit = (values)=>{
-        axios('api/user').then((res)=>{
-            if(res.data.user.username === values.username && res.data.user.password === values.password){
-                this.props.onFinish(values);
-                this.props.history.push('/')
-            }else{
-                message.error('密码或用户名错误',2)
-            }
-        }).catch((error)=>{
-            console.log(error)
-        })
+    submit = (values) => {
+        this.login(values.username,values.password);
 
     }
     render() {
@@ -101,7 +111,7 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onFinish:bindActionCreators(loginAction,dispatch)
+        loginAction: bindActionCreators(loginAction, dispatch)
     }
 }
 
